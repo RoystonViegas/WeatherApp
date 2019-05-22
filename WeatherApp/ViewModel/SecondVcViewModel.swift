@@ -11,25 +11,26 @@ import Foundation
 class SecondVcViewModel{
     
     // MARK: - Instance Variabls
-    var weatherData: WeatherDataModel?
+    var weatherCellModel: [WeatherCellModel]?
     
     // MARK: - Closure Declaration
-    var selectedCityClosure: ((String) -> Void)?
-    
-    // MARK: - Global Variables
-    let cities = ["Houston","Switzerland","California","Los Angeles","Dubai","London"]
-    
-    let weatherDictionary = [ "Houston" : 23,
-                              "Switzerland" : -2,
-                              "California" : 16,
-                              "Los Angeles" : 20,
-                              "Dubai" : 42,
-                              "London" : 10,
-                              ]
+    var weatherDataClosure: ((WeatherCellModel) -> Void)?
     
     //MARK: - Functions
-    func setSelectedPlaceName(_ selection: String){
-        weatherData?.city = selection
-        weatherData?.temperature = weatherDictionary[selection]
+    init() {
+        
+        let weatherModel1 = WeatherDataModel(cityName:"Houston",cityTemperature: 31.0)
+        let weatherModel2 = WeatherDataModel(cityName:"Switzerland", cityTemperature: -6.0)
+        let weatherModel3 = WeatherDataModel(cityName:"California", cityTemperature: 10.0)
+        let weatherModel4 = WeatherDataModel(cityName:"Los Angeles", cityTemperature: 20.0)
+        let weatherModel5 = WeatherDataModel(cityName:"Dubai", cityTemperature: 48.7)
+        
+        let cellModel1 = WeatherCellModel(weatherDataModel: weatherModel1)
+        let cellModel2 = WeatherCellModel(weatherDataModel: weatherModel2)
+        let cellModel3 = WeatherCellModel(weatherDataModel: weatherModel3)
+        let cellModel4 = WeatherCellModel(weatherDataModel: weatherModel4)
+        let cellModel5 = WeatherCellModel(weatherDataModel: weatherModel5)
+        
+        weatherCellModel = [cellModel1,cellModel2,cellModel3,cellModel4,cellModel5]
     }
 }

@@ -31,15 +31,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.cities.count
+        guard let noOfRows = viewModel.weatherCellModel?.count else { return 0 }
+        return noOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherTableViewCell {
             cell.accessoryType = .none
             
-            cell.placeTitleLabel.text = viewModel.cities[indexPath.row]
- 
+            cell.placeTitleLabel.text = viewModel.weatherCellModel?[indexPath.row].cityName
+            
             return cell
         }
         return UITableViewCell()
@@ -48,7 +49,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? WeatherTableViewCell{
             
-            guard let cellTitle = cell.placeTitleLabel.text else{
+            guard let weatherCellModel = viewModel.weatherCellModel?[indexPath.row] else {
                 return
             }
             
@@ -58,8 +59,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.accessoryType = .checkmark
                 
                 //Closure Call
-                if let closureCall = viewModel.selectedCityClosure {
-                    closureCall(cellTitle)
+                if let weatherClosureCall = viewModel.weatherDataClosure {
+                    weatherClosureCall(weatherCellModel)
                 }
                 
                 self.navigationController?.popViewController(animated: true)

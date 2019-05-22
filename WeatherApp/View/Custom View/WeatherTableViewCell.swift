@@ -20,3 +20,14 @@ class WeatherTableViewCell: UITableViewCell {
         super.setSelected(false, animated: true)
     }
 }
+
+class WeatherCellModel{
+    
+    var cityName: String?
+    var cityTemperature: Float?
+    
+    init( weatherDataModel: WeatherDataModel) {
+        cityName = weatherDataModel.city
+        cityTemperature = weatherDataModel.temperature
+    }
+}

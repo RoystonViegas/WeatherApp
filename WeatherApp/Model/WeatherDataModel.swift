@@ -11,5 +11,11 @@ import Foundation
 class WeatherDataModel{
     
     var city:String?
-    var temperature:Int?
+    var temperature:Float?
+    
+    init(cityName:String,cityTemperature:Float) {
+        city = cityName
+        temperature = cityTemperature
+    }
 }
+

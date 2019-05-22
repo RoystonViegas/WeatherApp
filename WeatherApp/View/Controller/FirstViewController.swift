@@ -35,11 +35,11 @@ class FirstViewController: UIViewController{
     
     // MARK: - IBOutlets / UIElements
     let temperatureLabel: UILabel = {
-        let lbl = UILabel(frame: CGRect(x: 95, y: 110, width: 200, height: 200))
+        let lbl = UILabel(frame: CGRect(x: -55, y: 110, width: 500, height: 200))
         lbl.text = "22"
         lbl.textColor = UIColor.darkGray
         lbl.textAlignment = NSTextAlignment.center
-        lbl.font = lbl.font.withSize(150)
+        lbl.font = lbl.font.withSize(100)
         return lbl
     }()
     
@@ -78,10 +78,13 @@ class FirstViewController: UIViewController{
             let secondVC = SecondViewController()
             
             //Closure Implementation
-            secondVC.viewModel.selectedCityClosure = { [weak self] value in
-                self?.cityLabel.text = value
+            secondVC.viewModel.weatherDataClosure = { [weak self] cellModel in
+                self?.cityLabel.text = cellModel.cityName
+                
+                if let temperature = cellModel.cityTemperature {
+                    self?.temperatureLabel.text = String(temperature)
+                }
             }
-            
             self.navigationController?.pushViewController(secondVC, animated: true)
         }
     }
