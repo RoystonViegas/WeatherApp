@@ -11,14 +11,14 @@ import UIKit
 class FirstViewController: UIViewController{
     
     // MARK: - Instance Variables
-    var viewModel : FirstVcViewModel?
+    var firstViewModel : FirstVcViewModel?
     
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.title = "Weather Report"
-        viewModel = FirstVcViewModel()
+        firstViewModel = FirstVcViewModel()
         displayUIElements()
     }
     
@@ -77,11 +77,16 @@ class FirstViewController: UIViewController{
             
             let secondVC = SecondViewController()
             
+            secondVC.secondViewModel.selectedCell_InSecondVM = firstViewModel?.selectedCell_InFirstVM
+            
             //Closure Implementation
-            secondVC.viewModel.weatherDataClosure = { [weak self] cellModel in
-                self?.cityLabel.text = cellModel.cityName
+            secondVC.secondViewModel.getCellDataClosure = { [weak self] customCellDataModel in
                 
-                if let temperature = cellModel.cityTemperature {
+                self?.firstViewModel?.selectedCell_InFirstVM = customCellDataModel
+                
+                self?.cityLabel.text = customCellDataModel.cityName
+
+                if let temperature = customCellDataModel.cityTemperature {
                     self?.temperatureLabel.text = String(temperature)
                 }
             }

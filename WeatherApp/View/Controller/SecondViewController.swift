@@ -14,7 +14,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Instance Variables
-    var viewModel = SecondVcViewModel()
+    var secondViewModel = SecondVcViewModel()
     
     // MARK: - Super Methods
     override func viewDidLoad() {
@@ -27,44 +27,62 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setDefaultsOnLoad(){
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "WeatherCell")
+        
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonClicked))
+    }
+    
+    // DONE Navigation Button
+    @objc func backButtonClicked(sender: UIBarButtonItem){
+        
+        guard let selectedCellData = secondViewModel.selectedCell_InSecondVM else{
+            print("Select any country")
+            return
+        }
+        
+        //CLOSURE CALL
+        secondViewModel.getCellDataClosure?(selectedCellData)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let noOfRows = viewModel.weatherCellModel?.count else { return 0 }
+        guard let noOfRows = secondViewModel.customCellDataModelArray?.count else { return 0 }
         return noOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherTableViewCell {
+            
             cell.accessoryType = .none
             
-            cell.placeTitleLabel.text = viewModel.weatherCellModel?[indexPath.row].cityName
+            let cellModelArrayValue = secondViewModel.customCellDataModelArray?[indexPath.row]
             
+            cell.placeTitleLabel.text = cellModelArrayValue?.cityName
+            
+            if let selectedCell = secondViewModel.selectedCell_InSecondVM{
+                if selectedCell.cityName == cellModelArrayValue?.cityName{
+                    cell.accessoryType = .checkmark
+                }
+            }
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? WeatherTableViewCell{
-            
-            guard let weatherCellModel = viewModel.weatherCellModel?[indexPath.row] else {
+        
+            guard let customCellDataModelArrayValue = secondViewModel.customCellDataModelArray?[indexPath.row] else {
                 return
             }
             
-            if cell.accessoryType == .checkmark{
-                cell.accessoryType = .none
-            }else{
-                cell.accessoryType = .checkmark
+            if  secondViewModel.selectedCell_InSecondVM?.cityName == customCellDataModelArrayValue.cityName{
                 
-                //Closure Call
-                if let weatherClosureCall = viewModel.weatherDataClosure {
-                    weatherClosureCall(weatherCellModel)
-                }
-                
-                self.navigationController?.popViewController(animated: true)
+                secondViewModel.selectedCell_InSecondVM = nil
             }
+            else{
+                secondViewModel.selectedCell_InSecondVM = customCellDataModelArrayValue
+            }
+            tableView.reloadData()
         }
-    }
 }

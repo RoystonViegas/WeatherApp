@@ -21,7 +21,7 @@ class WeatherTableViewCell: UITableViewCell {
     }
 }
 
-class WeatherCellModel{
+class CustomCellDataModel{
     
     var cityName: String?
     var cityTemperature: Float?
