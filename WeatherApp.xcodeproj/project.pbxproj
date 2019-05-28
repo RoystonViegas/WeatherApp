@@ -18,12 +18,15 @@
 		75676CD1229275B40033CACC /* FirstVcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75676CD0229275B40033CACC /* FirstVcViewModel.swift */; };
 		756A2D2A228AD2F200CFCAAB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A2D28228AD2F200CFCAAB /* SecondViewController.swift */; };
 		756A2D2B228AD2F200CFCAAB /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756A2D29228AD2F200CFCAAB /* SecondViewController.xib */; };
+		757B8798229D105B00DDFAB2 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B8796229D105B00DDFAB2 /* ThirdViewController.swift */; };
+		757B8799229D105B00DDFAB2 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757B8797229D105B00DDFAB2 /* ThirdViewController.xib */; };
+		757B879B229D107300DDFAB2 /* ThirdVcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B879A229D107300DDFAB2 /* ThirdVcViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7541A301228D6E2000BD0A22 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		7541A302228D6E2000BD0A22 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
-		7541A30C228D8D2900BD0A22 /* SecondVcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondVcViewModel.swift; path = "WeatherApp/ViewModel/SecondVcViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		7541A30C228D8D2900BD0A22 /* SecondVcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondVcViewModel.swift; path = WeatherApp/ViewModel/SecondVcViewModel.swift; sourceTree = SOURCE_ROOT; };
 		7541A30E228D8D3D00BD0A22 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		7556593722843CF300231D2A /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556593A22843CF300231D2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		75676CD0229275B40033CACC /* FirstVcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVcViewModel.swift; sourceTree = "<group>"; };
 		756A2D28228AD2F200CFCAAB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		756A2D29228AD2F200CFCAAB /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		757B8796229D105B00DDFAB2 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		757B8797229D105B00DDFAB2 /* ThirdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		757B879A229D107300DDFAB2 /* ThirdVcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVcViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,7 @@
 			children = (
 				75676CD0229275B40033CACC /* FirstVcViewModel.swift */,
 				7541A30C228D8D2900BD0A22 /* SecondVcViewModel.swift */,
+				757B879A229D107300DDFAB2 /* ThirdVcViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -79,6 +86,8 @@
 				7556593C22843CF300231D2A /* FirstViewController.swift */,
 				756A2D28228AD2F200CFCAAB /* SecondViewController.swift */,
 				756A2D29228AD2F200CFCAAB /* SecondViewController.xib */,
+				757B8796229D105B00DDFAB2 /* ThirdViewController.swift */,
+				757B8797229D105B00DDFAB2 /* ThirdViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,7 +155,7 @@
 			dependencies = (
 			);
 			name = WeatherApp;
-			productName = "WeatherApp";
+			productName = WeatherApp;
 			productReference = 7556593722843CF300231D2A /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -191,6 +200,7 @@
 				7541A304228D6E2000BD0A22 /* WeatherTableViewCell.xib in Resources */,
 				7556594522843CF400231D2A /* LaunchScreen.storyboard in Resources */,
 				7556594222843CF400231D2A /* Assets.xcassets in Resources */,
+				757B8799229D105B00DDFAB2 /* ThirdViewController.xib in Resources */,
 				756A2D2B228AD2F200CFCAAB /* SecondViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,10 +214,12 @@
 			files = (
 				75676CD1229275B40033CACC /* FirstVcViewModel.swift in Sources */,
 				7541A30D228D8D2900BD0A22 /* SecondVcViewModel.swift in Sources */,
+				757B879B229D107300DDFAB2 /* ThirdVcViewModel.swift in Sources */,
 				7541A303228D6E2000BD0A22 /* WeatherTableViewCell.swift in Sources */,
 				7541A30F228D8D3D00BD0A22 /* WeatherDataModel.swift in Sources */,
 				756A2D2A228AD2F200CFCAAB /* SecondViewController.swift in Sources */,
 				7556593D22843CF300231D2A /* FirstViewController.swift in Sources */,
+				757B8798229D105B00DDFAB2 /* ThirdViewController.swift in Sources */,
 				7556593B22843CF300231D2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,11 +360,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xyz.weatherapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -365,11 +378,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xyz.weatherapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

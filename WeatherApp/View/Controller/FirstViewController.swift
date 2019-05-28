@@ -55,8 +55,8 @@ class FirstViewController: UIViewController{
     let button1: UIButton = {
         let btn = UIButton(frame: CGRect(x: 115, y: 650, width: 150, height: 50))
         btn.backgroundColor = UIColor.blue
-        btn.setTitle("Choose a Place", for: .normal)
-        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        btn.setTitle("Change Location", for: .normal)
+        btn.addTarget(self, action: #selector(selectLocation), for: .touchUpInside)
         btn.tag = 1
         return btn
     }()
@@ -65,13 +65,13 @@ class FirstViewController: UIViewController{
         let btn2 = UIButton(frame: CGRect(x: 140, y: 720, width: 100, height: 50))
         btn2.backgroundColor = UIColor.red
         btn2.setTitle("Dummy", for: .normal)
-        btn2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        btn2.addTarget(self, action: #selector(selectLocation), for: .touchUpInside)
         btn2.tag = 2
         return btn2
     }()
     
     // MARK: - Actions
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func selectLocation(sender: UIButton!) {
         let btnsendtag: UIButton = sender
         if btnsendtag.tag == 1 {
             

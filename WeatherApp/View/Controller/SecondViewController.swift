@@ -19,7 +19,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Screen 1"
+        self.title = "Select a Location"
         tableView.delegate = self
         tableView.dataSource = self
         setDefaultsOnLoad()
@@ -30,9 +30,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonClicked))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClicked))
     }
     
-    // DONE Navigation Button
     @objc func backButtonClicked(sender: UIBarButtonItem){
         
         guard let selectedCellData = secondViewModel.selectedCell_InSecondVM else{
@@ -43,6 +43,20 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //CLOSURE CALL
         secondViewModel.getCellDataClosure?(selectedCellData)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func addButtonClicked(sender: UIBarButtonItem){
+        
+        let thirdVC = ThirdViewController()
+        
+        //CLOSURE IMPLEMENT
+        thirdVC.thirdViewModel.addedDataClosure = { [weak self] customCellDataModel in
+            
+            self?.secondViewModel.customCellDataModelArray?.append(customCellDataModel)
+            self?.tableView.reloadData()
+        }
+        
+        self.navigationController?.pushViewController(thirdVC, animated: true)
     }
     
     // MARK: - TableView Methods
