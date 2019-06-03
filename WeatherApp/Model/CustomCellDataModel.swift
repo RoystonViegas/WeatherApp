@@ -12,8 +12,10 @@ class CustomCellDataModel{
     
     var cityName: String?
     var cityTemperature: Float?
+    var id: String?
     
     init( weatherDataModel: WeatherDataModel) {
+        id = UUID().uuidString
         cityName = weatherDataModel.city
         cityTemperature = weatherDataModel.temperature
     }

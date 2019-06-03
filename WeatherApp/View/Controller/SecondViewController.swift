@@ -76,7 +76,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.placeTitleLabel.text = cellModelArrayValue?.cityName
             
             if let selectedCell = secondViewModel.selectedCell_InSecondVM{
-                if selectedCell.cityName == cellModelArrayValue?.cityName{
+                if selectedCell.id == cellModelArrayValue?.id{
                     cell.accessoryType = .checkmark
                 }
             }
@@ -91,7 +91,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return
             }
             
-            if  secondViewModel.selectedCell_InSecondVM?.cityName == customCellDataModelArrayValue.cityName{
+            if  secondViewModel.selectedCell_InSecondVM?.id == customCellDataModelArrayValue.id{
                 
                 secondViewModel.selectedCell_InSecondVM = nil
             }
