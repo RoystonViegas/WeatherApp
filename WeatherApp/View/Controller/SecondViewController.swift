@@ -87,17 +87,38 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-            guard let customCellDataModelArrayValue = secondViewModel.customCellDataModelArray?[indexPath.row] else {
+        guard let customCellDataModelArrayValue = secondViewModel.customCellDataModelArray?[indexPath.row] else {
+            return
+        }
+            
+        if  secondViewModel.selectedCell_InSecondVM?.id == customCellDataModelArrayValue.id{
+            secondViewModel.selectedCell_InSecondVM = nil
+        }
+        else{
+            secondViewModel.selectedCell_InSecondVM = customCellDataModelArrayValue
+        }
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            guard let customCellDataModelArray = secondViewModel.customCellDataModelArray?[indexPath.row] else {
                 return
             }
             
-            if  secondViewModel.selectedCell_InSecondVM?.id == customCellDataModelArrayValue.id{
-                
+            if  secondViewModel.selectedCell_InSecondVM?.id == customCellDataModelArray.id{
                 secondViewModel.selectedCell_InSecondVM = nil
             }
-            else{
-                secondViewModel.selectedCell_InSecondVM = customCellDataModelArrayValue
-            }
-            tableView.reloadData()
+            
+            secondViewModel.data.customCellDataModelArray?.remove(at: indexPath.row)
+            secondViewModel.customCellDataModelArray?.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
 }
