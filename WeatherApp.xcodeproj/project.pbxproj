@@ -15,6 +15,8 @@
 		7556593D22843CF300231D2A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556593C22843CF300231D2A /* FirstViewController.swift */; };
 		7556594222843CF400231D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7556594122843CF400231D2A /* Assets.xcassets */; };
 		7556594522843CF400231D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7556594322843CF400231D2A /* LaunchScreen.storyboard */; };
+		755C982922A503D900DE5151 /* CustomCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C982822A503D900DE5151 /* CustomCellDataModel.swift */; };
+		755C982B22A5043400DE5151 /* DummyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C982A22A5043400DE5151 /* DummyDataManager.swift */; };
 		75676CD1229275B40033CACC /* FirstVcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75676CD0229275B40033CACC /* FirstVcViewModel.swift */; };
 		756A2D2A228AD2F200CFCAAB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A2D28228AD2F200CFCAAB /* SecondViewController.swift */; };
 		756A2D2B228AD2F200CFCAAB /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756A2D29228AD2F200CFCAAB /* SecondViewController.xib */; };
@@ -34,6 +36,8 @@
 		7556594122843CF400231D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7556594422843CF400231D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7556594622843CF400231D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		755C982822A503D900DE5151 /* CustomCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDataModel.swift; sourceTree = "<group>"; };
+		755C982A22A5043400DE5151 /* DummyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataManager.swift; sourceTree = "<group>"; };
 		75676CD0229275B40033CACC /* FirstVcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVcViewModel.swift; sourceTree = "<group>"; };
 		756A2D28228AD2F200CFCAAB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		756A2D29228AD2F200CFCAAB /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				7541A30E228D8D3D00BD0A22 /* WeatherDataModel.swift */,
+				755C982822A503D900DE5151 /* CustomCellDataModel.swift */,
+				755C982A22A5043400DE5151 /* DummyDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,8 +224,10 @@
 				7541A303228D6E2000BD0A22 /* WeatherTableViewCell.swift in Sources */,
 				7541A30F228D8D3D00BD0A22 /* WeatherDataModel.swift in Sources */,
 				756A2D2A228AD2F200CFCAAB /* SecondViewController.swift in Sources */,
+				755C982922A503D900DE5151 /* CustomCellDataModel.swift in Sources */,
 				7556593D22843CF300231D2A /* FirstViewController.swift in Sources */,
 				757B8798229D105B00DDFAB2 /* ThirdViewController.swift in Sources */,
+				755C982B22A5043400DE5151 /* DummyDataManager.swift in Sources */,
 				7556593B22843CF300231D2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

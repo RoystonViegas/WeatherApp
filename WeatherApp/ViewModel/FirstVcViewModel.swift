@@ -11,5 +11,4 @@ import Foundation
 class FirstVcViewModel {
     
     var selectedCell_InFirstVM: CustomCellDataModel?
-
 }

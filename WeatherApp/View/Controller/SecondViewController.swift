@@ -53,6 +53,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         thirdVC.thirdViewModel.addedDataClosure = { [weak self] customCellDataModel in
             
             self?.secondViewModel.customCellDataModelArray?.append(customCellDataModel)
+            self?.secondViewModel.data.customCellDataModelArray?.append(customCellDataModel)
             self?.tableView.reloadData()
         }
         
